@@ -7,14 +7,15 @@
 
 <body>
 	<h1>It works fine!</h1>
-  
+    
+    <ul data-bind="foreach: catsArray">
+        	<li data-bind="text: name, click: $parent.changeCurrentCat"></li>
+    </ul>
     <div data-bind="with: currentCat">
     	<h2 data-bind="text: fullName"></h2>
     	<div data-bind="text: clickCount"></div>
     	<img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src:imgSrc}"></div>
-    	<div data-bind="foreach: catsArray">
-        	<div data-bind="text: $data.name"></div>
-    	</div>
+    	
     </div>
 
     <script src="js/lib/knockout-3.3.0.js"></script>

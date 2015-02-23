@@ -37,8 +37,18 @@ var Cat = function(data) {
 }
 
 var ViewModel = function() {
-	this.catsArray = ko.observableArray(initialCats);
-	this.currentCat = ko.observable(new Cat(this.catsArray()[0]));
+	var self = this;
+	self.catsArray = ko.observableArray();
+
+	initialCats.forEach(function(rawCat){
+		self.catsArray.push( new Cat(rawCat) );
+	});
+	this.currentCat = ko.observable(this.catsArray()[0]);
+
+    self.changeCurrentCat = function(clickedCat) {
+    	self.currentCat(clickedCat);
+    	console.log('Hi');
+    }
 }
 
 ko.applyBindings(new ViewModel());

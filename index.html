@@ -6,7 +6,17 @@
 </head>
 
 <body>
-<h1>It works fine!</h1>
+	<h1>It works fine!</h1>
+  
+    <div data-bind="with: currentCat">
+    	<h2 data-bind="text: fullName"></h2>
+    	<div data-bind="text: clickCount"></div>
+    	<img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src:imgSrc}"></div>
+    	<div data-bind="foreach: catsArray">
+        	<div data-bind="text: $data.name"></div>
+    	</div>
+    </div>
+
     <script src="js/lib/knockout-3.3.0.js"></script>
     <script src="js/app.js"></script>
 </body>
